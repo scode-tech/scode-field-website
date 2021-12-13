@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Scode Field</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Scode field that can provide everything you need to manage your doctors , pharmacies and companies you dealing with it." />
+    <meta name="keywords" content="Saas, Software, multi-uses, Scode,field,Scode field, Clean, Modern" />
+    <meta name="author" content="ScodeTech" />
+    <meta name="email" content="support@scode.tech" />
+    <meta name="website" content="https://scode.tech" />
+    <meta name="Version" content="v3.5.0" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons -->
+    <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <!-- Slider -->
+    <link rel="stylesheet" href="css/tiny-slider.css" />
+    <!-- Main Css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <link href="css/colors/default.css" rel="stylesheet" id="color-opt">
+    <link rel="stylesheet" href="css/custom.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/integration
+            emailjs.init('user_wT8xcKPnTCVlSmtA3xBzl');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_u31bd6c', 'template_1tu3c6m', this)
+                    .then(function () {
+                        console.log('SUCCESS!');
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Loader -->
+    <!-- <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div> -->
+    <!-- Loader -->
+
+    <!-- Navbar STart -->
+    <header id="topnav" class="defaultscroll sticky mb-5">
+        <div class="container  mt-2">
+            <!-- Logo container-->
+            <a class="logo" href="index.html">
+                <img src="assets/logo.png" height="70" class="logo-light-mode" alt="">
+                <img src="assets/logo.png" height="70" class="logo-dark-mode" alt="">
+            </a>
+
+            <!-- Logo End -->
+
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+
+            <!--Login button Start-->
+            <ul class="buy-button list-inline mb-0">
+                <li class="list-inline-item ps-1 mb-0">
+                    <a href="https://dev.erp.scode.tech" target="_blank">
+                        <div class="btn  btn-primary"><i data-feather="activity" class="fea icon-sm"></i>
+                            <span class="d-inline-block">Login</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <!--Login button End-->
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="#" class="sub-menu-item">Home</a></li>
+                    <li><a href="#features" class="sub-menu-item">Features</a></li>
+                    <li><a href="#about-us" class="sub-menu-item">About Us</a></li>
+                    <li><a href="/contact-us.html" class="sub-menu-item">Contact</a></li>
+                </ul>
+                <!--end navigation menu-->
+            </div>
+            <!--end navigation-->
+        </div>
+        <!--end container-->
+    </header>
+    <!--end header-->
+    <!-- Navbar End -->
+    <section class="section bg-home d-table w-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12  mt-4 pt-2">
+                    <div class="card shadow rounded border-0">
+                        <div class="card-body py-5">
+                            <h4 class="card-title">Send a message</h4>
+                            <div class="custom-form mt-3">
+                                <form method="post" id="contact-form">
+                                    <input type="hidden" name="contact_number">
+                                    <p id="error-msg" class="mb-0"></p>
+                                    <div id="simple-msg"></div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Your Name <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="user" class="fea icon-sm icons"></i>
+                                                    <input name="user_name" id="name" type="text" class="form-control ps-5"
+                                                        placeholder="Name :">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Your Email <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="mail" class="fea icon-sm icons"></i>
+                                                    <input name="user_email" id="email" type="email"
+                                                        class="form-control ps-5" placeholder="Email :">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Subject</label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="book" class="fea icon-sm icons"></i>
+                                                    <input name="subject" id="subject" class="form-control ps-5"
+                                                        placeholder="subject :">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Message <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="message-circle"
+                                                        class="fea icon-sm icons clearfix"></i>
+                                                    <textarea name="message" id="message" rows="4"
+                                                        class="form-control ps-5" placeholder="Message :"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="d-grid">
+                                                <button type="submit" id="submit" name="send"
+                                                    class="btn btn-primary">Send Message</button>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                    </div>
+                                    <!--end row-->
+                                </form>
+                            </div>
+                            <!--end custom-form-->
+                        </div>
+                    </div>
+                </div>
+                <!--end col-->
+
+                <div class="col-lg-6 col-md-6 ps-md-3 pe-md-3 mt-4 pt-2">
+                    <img src="assets/contact.svg" alt="">
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end container-->
+
+        <div class="container mt-100 mt-60">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card border-0 text-center features feature-clean">
+                        <div class="icons text-primary text-center mx-auto">
+                            <i class="uil uil-phone d-block rounded h3 mb-0"></i>
+                        </div>
+                        <div class="content mt-3">
+                            <h5 class="fw-bold">Phone</h5>
+                            <p class="text-muted">You can contact us using a phone call</p>
+                            <a href="tel:+9647711111111" class="text-primary">+9647711111111</a>
+                        </div>
+                    </div>
+                </div>
+                <!--end col-->
+
+                <div class="col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <div class="card border-0 text-center features feature-clean">
+                        <div class="icons text-primary text-center mx-auto">
+                            <i class="uil uil-envelope d-block rounded h3 mb-0"></i>
+                        </div>
+                        <div class="content mt-3">
+                            <h5 class="fw-bold">Email</h5>
+                            <p class="text-muted">You can contact us by sending an email</p>
+                            <a href="mailto:info@scode.tech" class="text-primary">info@scode.tech</a>
+                        </div>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end container-->
+    </section>
+    <a href="#" onclick="topFunction()" id="back-to-top" class="back-to-top fs-5"><i data-feather="arrow-up"
+            class="fea icon-sm icons align-middle"></i></a>
+    <!-- Back to top -->
+
+    <!-- javascript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- SLIDER -->
+    <script src="js/tiny-slider.js "></script>
+    <!-- Icons -->
+    <script src="js/feather.min.js"></script>
+    <!-- Main Js -->
+    <script src="js/plugins.init.js"></script>
+    <!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
