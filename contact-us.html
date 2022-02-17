@@ -99,6 +99,9 @@
                         <div class="card-body py-5">
                             <h4 class="card-title">Send a message</h4>
                             <div class="custom-form mt-3">
+                                <div class="alert alert-success d-none" id="success">
+                                    <strong>Done!</strong> Your message has been sent.
+                                </div> 
                                 <form method="post" id="contact-form">
                                     <input type="hidden" name="contact_number">
                                     <p id="error-msg" class="mb-0"></p>
@@ -248,6 +251,8 @@
                         $('#text').removeClass('d-none');
                         $('#loading').addClass('d-none');
                         $('#contact-form').trigger("reset");
+                        $('#success').removeClass('d-none');
+                        $('#submit').attr('disabled', true);
 
                     }, function (error) {
                         console.log('FAILED...', error);
